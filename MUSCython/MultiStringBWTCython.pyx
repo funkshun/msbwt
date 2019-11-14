@@ -47,17 +47,17 @@ def loadBWT(bwtDir, useMemmap=True, logger=None):
     @return - a ByteBWT, RLE_BWT, or none if neither can be instantiated
     '''
     #bwtDir = bwtDir.decode('utf-8', 'ignore')
-    print(type('/test'.encode('utf-8', 'ignore')))
+    print(type('/test'))
     #print(type(bwtDir))
-    if os.path.exists(bwtDir+'/msbwt.npy'.encode('utf-8', 'ignore')):
+    if os.path.exists(bwtDir+'/msbwt.npy'):
         msbwt = ByteBWT()
         msbwt.loadMsbwt(bwtDir, useMemmap, logger)
         return msbwt
-    elif os.path.exists(bwtDir+'/comp_msbwt.npy'.encode('utf-8', 'ignore')):
+    elif os.path.exists(bwtDir+'/comp_msbwt.npy'):
         msbwt = RLE_BWT()
         msbwt.loadMsbwt(bwtDir, useMemmap, logger)
         return msbwt
-    elif os.path.exists(bwtDir+'/comp_msbwt.dat'.encode('utf-8', 'ignore')):
+    elif os.path.exists(bwtDir+'/comp_msbwt.dat'):
         msbwt = LZW_BWT()
         msbwt.loadMsbwt(bwtDir, useMemmap, logger)
         return msbwt
